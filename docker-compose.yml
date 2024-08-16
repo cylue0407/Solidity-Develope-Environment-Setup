@@ -1,0 +1,33 @@
+# Docker-compose file
+# truffle with ganache testing env.
+# f@keit424 
+
+version: '3.9'
+services:
+  ganache:
+    image: trufflesuite/ganache
+    ports:
+      - "8545:8545"
+    #volumes:
+    #  - ./ganache_data:/ganache_data
+    tty: true
+    stdin_open: true
+    command:
+      - --fork.network
+      - mainnet
+      - --chain.networkId 
+      - "1"
+      - --accounts
+      - "10"
+      - --wallet.seed
+      - "1337"
+      - --port
+      - "8545"
+      #- --db
+      #- "/ganache_data"
+      #- --hostname
+      #- '0.0.0.0'
+
+
+# ENTRYPOINT ["node", "./build/cli.node.js"]
+# ENTRYPOINT ["node", "/app/ganache-core.docker.cli.js"]
