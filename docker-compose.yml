@@ -1,6 +1,12 @@
 # Docker-compose file
-# truffle with ganache testing env.
-# f@keit424 
+# truffle with ganache testing environment setup
+# f@keit424 Create @ 240816
+# Version: 2.0
+# Update @ 240819
+# ===============================
+# Version 2.0 update note:
+# 1. Split services into 'ganache' & 'truffle'
+# 2. 
 
 version: '3.9'
 services:
@@ -8,10 +14,9 @@ services:
     image: trufflesuite/ganache
     ports:
       - "8545:8545"
-    #volumes:
-    #  - ./ganache_data:/ganache_data
+    volumes:
+      - ./ganache_data:/ganache_data
     tty: true
-    stdin_open: true
     command:
       - --fork.network
       - mainnet
@@ -23,8 +28,8 @@ services:
       - "1337"
       - --port
       - "8545"
-      #- --db
-      #- "/ganache_data"
+      - --db
+      - "/ganache_data"
       #- --hostname
       #- '0.0.0.0'
 
